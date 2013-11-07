@@ -1,0 +1,49 @@
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>String Counter</title>
+</head>
+
+<body>
+
+<h1>How long is this string?</h1>
+<p>Let&#039;s find out.</p>
+
+<form>
+<p>How long should this string be?<br />
+	<input type="text" id="target_length" size="3" /><br />
+</p>
+<p>What are you trying to say?<br />
+	<input type="text" id="string" size="100"  /><br />
+</p>
+</form>
+
+<p id="response">Start typing...</p>
+
+<script type="text/javascript">
+	var targetLength;
+	var string;
+	var stringInput;
+	var stringLength;
+	var remaining;
+	var response;
+	
+	string = document.getElementById('string');
+	
+	string.oninput = function(){//I heart HTML5
+		stringInput = document.getElementById('string').value;
+		stringLength = stringInput.length;
+		
+		targetLength = document.getElementById('target_length').value;
+		
+		remaining = targetLength - stringLength;
+		
+		response = 'Your string is ' + stringLength + ' characters long.  You have ' + remaining + ' characters remaining.';
+		document.getElementById('response').innerHTML = response;
+		
+		}
+</script>
+
+</body>
+</html>
